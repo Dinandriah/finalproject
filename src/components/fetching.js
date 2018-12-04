@@ -1,83 +1,83 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+// import { Card, CardImg, CardText, CardBody,
+//   CardTitle, CardSubtitle, Button } from 'reactstrap';
 import {placesApi} from '../configuration/data';
 
 export default class extends React.Component{
     constructor (props){
         super(props)
-        let places;
-        if (props.places){
-            places = props.places
+        let place;
+        if (props.place){
+            place = props.place
         }
         else {
-            places = {'city': '', 'state': '', 'adventure': '', 'date': '', 'img': ''}
+            place = {'city': '', 'state': '', 'adventure': '', 'date': '', 'img': ''}
         }
         this.state = {
-            city: places.city,
-            state: places.state,
-            date: places.date,
-            img: places.img,
-            adventure: places.adventure
+            city: place.city,
+            state: place.state,
+            date: place.date,
+            img: place.img,
+            adventure: place.adventure
 
         }
     }
-handlePlaceChange = (id) => (event) => {
+handlePlaceChange = (id) => (evt) => {
     const newPlace = this.state.place.map ((place, _id)=> {
         if (id !== _id) return place;
 
-        return event.target.value
+        return evt.target.value
     });
     this.setState ({place: newPlace})
 }
 
 handleAddPlace = () =>{
     this.setState({
-        place: this.state.place.concat ([''])
+        place: this.state.places.concat ([''])
     })
 }
 handleRemovePlace = (id) => () => {
     this.setState({
-        place: this.state.place.filter((s, _id) => id !== _id)
+        place: this.state.places.filter((s, _id) => id !== _id)
     })
 }
 handleSubmit = (evt) => {
-    let thing = this.props.thing
-    if (!thing){
-        thing = ''
+    let id = this.props.id
+    if (!id){
+        id = ''
     }
-    placesApi(this.state, this.props.action, thing)
+    placesApi(this.state, this.props.action, id)
 }
 render (){
 
   return (
-    <div>
-      <Card className="place" onSubmit={this.handleSubmit}>
-        <CardImg 
+    <div key= "_id">
+      <form className="place" onSubmit={this.handleSubmit}>
+        <input 
         type="text" 
         placeholder="Image Url" 
         value={this.state.img} 
         onChange={event => this.setState({ img: event.target.value })} 
         />
-        <CardBody>
-          <CardTitle 
+        {/* {this.state.city.map ((city, id))} */}
+          <input 
           type= "text"
-          placeholder= "City"
+          placeholder= {`City name`}
           value= {this.state.city}
-          onChange={event => this.setState ({city: event.target.value})}/>
-          <CardSubtitle
+          onChange={event => this.setState({city: event.target.value})}/>
+          <input
           type= "text"
           placeholder= "State"
           value= {this.state.state}
           onChange={event => this.setState({state: event.target.value})}/>
-          <CardText
+          <input
           type="text"
           placeholder= "Adventure"
           value= {this.state.adventure}
           onChange={event => this.setState ({adventure: event.target.value})}/>
-          <Button>Button</Button>
-        </CardBody>
-      </Card>
+          <button>Button</button>
+        
+      </form>
     </div>
   );
 };

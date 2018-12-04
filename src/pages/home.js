@@ -3,9 +3,8 @@ import Fetching from '../components/fetching'
 import PageStyle from '../configuration/styles'
 
 class Homepage extends Component {
-    state = {
-        places: []
-    }
+    // super (props){}
+    state = {places: ['']}
     getPlaces = async () => {
         await fetch('http://127.0.0.1:3000/places')
         .then (result => result.json())
@@ -18,9 +17,11 @@ class Homepage extends Component {
     render () {
         return (
             <PageStyle>
-                <Fetching></Fetching>
+                <Fetching data={this.state.places}/>
             </PageStyle>
+            
         )
+        
     }
 }
 export default Homepage
