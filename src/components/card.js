@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import HomePage from '../pages/home'
 import DeletePlaces from './DeletePlaces'
+import UpdatePlacesWrapped from './UpdatePlaces'
 
 const handlePlaceChange = (id) => (thing) => {
     const newPlace = this.state.place.map ((place, _id)=> {
@@ -63,13 +64,20 @@ function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" {...handlePlaceChange()}>
+        {/* <Button size="small" color="primary" {...handlePlaceChange()}>
           Edit Adventure
-        </Button>
+        </Button> */}
         {/* <Button size="small" color="primary"{...handleRemovePlace()}>
           Delete Adventure
         </Button> */}
-        <DeletePlaces placeid={props.places._id}/>
+        <UpdatePlacesWrapped 
+        // placeid={props.places._id}
+        places={props.places}
+        />
+        <DeletePlaces 
+        placeid={props.places._id}
+        
+        />
       </CardActions>
     </Card>
   );
