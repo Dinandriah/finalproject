@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import { Card, CardImg, CardText, CardBody,
 //   CardTitle, CardSubtitle, Button } from 'reactstrap';
-import {placesApi} from '../configuration/data';
+// import {placesApi} from '../configuration/data';
 
-export default class extends React.Component{
+class Fetching extends Component{
     constructor (props){
         super(props)
-        let place;
+        // let place;
         if (props.place){
-            place = props.place
+            // place = this.props.place
+            console.log(props.place)
         }
         else {
-            place = {'city': '', 'state': '', 'adventure': '', 'date': '', 'img': ''}
+            console.log("else")
+            // place = {'city': '', 'state': '', 'adventure': '', 'date': '', 'img': ''}
         }
+        // console.log(place)
+        // console.log(this.props.place)
         this.state = {
             city: place.city,
             state: place.state,
@@ -22,11 +26,12 @@ export default class extends React.Component{
 
         }
     }
-handlePlaceChange = (id) => (evt) => {
+    
+handlePlaceChange = (id) => (thing) => {
     const newPlace = this.state.place.map ((place, _id)=> {
         if (id !== _id) return place;
 
-        return evt.target.value
+        return thing.target.value
     });
     this.setState ({place: newPlace})
 }
@@ -48,40 +53,5 @@ handleSubmit = (evt) => {
     }
     placesApi(this.state, this.props.action, id)
 }
-render (){
 
-  return (
-    <div key= "_id">
-      <form className="place" onSubmit={this.handleSubmit}>
-        <input 
-        type="text" 
-        placeholder="Image Url" 
-        value={this.state.img} 
-        onChange={event => this.setState({ img: event.target.value })} 
-        />
-        {/* {this.state.city.map ((city, id))} */}
-          <input 
-          type= "text"
-          placeholder= {`City name`}
-          value= {this.state.city}
-          onChange={event => this.setState({city: event.target.value})}/>
-          <input
-          type= "text"
-          placeholder= "State"
-          value= {this.state.state}
-          onChange={event => this.setState({state: event.target.value})}/>
-          <input
-          type="text"
-          placeholder= "Adventure"
-          value= {this.state.adventure}
-          onChange={event => this.setState ({adventure: event.target.value})}/>
-          <button>Button</button>
-        
-      </form>
-    </div>
-  );
-};
-
-// export default Place;
-    
 }

@@ -1,14 +1,18 @@
 import React, { Component, Fragment } from 'react';
 // import Fetching from './fetching'
-import PlaceForm from "./update"
-class places extends Component {
+// import PlaceForm from "./placeform"
+import MediaCard from '../components/card'
+
+class Places extends Component {
     render (){
-        const places = this.props.data.map(places => <PlaceForm place={place}/>)
+    const Places = this.props.data.map(Places => {console.log('inside map'); return <MediaCard places={Places}/>})
+        console.log('Places',  this.props.data)
+        console.log(this.props, 'props')
         return(
             <Fragment>
-                {places}
+                {Places}
             </Fragment>
         )
     }
 }
-export default places
+export default Places

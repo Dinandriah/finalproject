@@ -5,7 +5,7 @@ class PageStyle extends Component{
         return (
             <div className='page'>
                 <div className = "center">
-                    <header className = "theme">A collection of Adventures my family has experienced</header>
+                    <header className = "theme"></header>
                 <div>{this.props.children}</div>
                 </div>
             </div>
