@@ -84,7 +84,7 @@ class AddPlaces extends Component{
         >
           <div style={getModalStyle()} className={classes.paper}>
           
-          <form className="place" onSubmit={this.AddPlaces}>
+          <form onSubmit={this.AddPlaces}className="place">
             <input 
             type="text" 
             placeholder="Image Url" 
@@ -117,7 +117,7 @@ class AddPlaces extends Component{
             defaultValue= {this.state.places._id}
             onChange={event => this.setState({places: { ...this.state.places, _id: event.target.value.parseInt}})} /> */}
             <button>Button</button>
-        
+            {/* <Button onSubmit={this.AddPlaces && this.handleClose && this.componentWillUpdate}>Submit</Button> */}
       </form>
       {/* <p>{this.state.places}</p> */}
            <Button onClick={this.handleClose}>Close Modal</Button>

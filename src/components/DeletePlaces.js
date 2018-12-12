@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PlacesApi from "../configuration/data"
-
+import Button from '@material-ui/core/Button';
 class DeletePlaces extends Component{
     // handleDelete = async (event) => {
     //     const id = `/id/${this.props.data}`
@@ -20,7 +20,9 @@ class DeletePlaces extends Component{
     }
     render() {
         return (
+            
             <form onSubmit={this.DeletePlaces}>
+            {/* <Button onClick={this.DeletePlaces}></Button> */}
             <button>Delete</button>
             </form>
         )
