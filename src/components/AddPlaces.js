@@ -54,7 +54,7 @@ class AddPlaces extends Component{
     this.setState({ open: false });
   };
   AddPlaces = async (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     await fetch('http://finapi-env.gsnqvvrdga.us-east-2.elasticbeanstalk.com/places',
     {
         method: 'POST',
