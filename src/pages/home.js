@@ -9,7 +9,7 @@ class Homepage extends Component {
     // super (props){}
     state = {places: []}
     getPlaces = async () => {
-        await fetch('http://127.0.0.1:3000/places')
+        await fetch('http://finapi-env.gsnqvvrdga.us-east-2.elasticbeanstalk.com/places')
         .then (result => result.json())
         .then (data => {console.log('then', data); this.setState ({places: data}); })
         console.log ('data', this.state.places)

@@ -1,4 +1,4 @@
-const url = 'http://127.0.0.1:3000'
+const url = 'http://finapi-env.gsnqvvrdga.us-east-2.elasticbeanstalk.com/places'
 
 export const placesApi = async (data, action) => {
     await fetch (url,{

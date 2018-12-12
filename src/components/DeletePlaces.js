@@ -8,7 +8,7 @@ class DeletePlaces extends Component{
     // }
     DeletePlaces = async (e) => {
         // e.preventDefault()
-        await fetch('http://127.0.0.1:3000/places/'+this.props.placeid, 
+        await fetch('http://finapi-env.gsnqvvrdga.us-east-2.elasticbeanstalk.com/places/'+this.props.placeid, 
         {
             method: 'DELETE'
         }

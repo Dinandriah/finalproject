@@ -56,8 +56,14 @@ class UpdatePlaces extends Component{
       };
     
     UpdatePlaces = async (e) => {
-        
-        await fetch(`http://127.0.0.1:3000/places/`+this.props.places._id,
+        // e.preventDefault()
+        // const statedata = {
+        //     city: this.state.places.city,
+        //     state: this.state.places.state,
+        //     img: this.state.places.img,
+        //     date: this.state.places.date,
+        //     adventure: this.state.places.adventure}
+        await fetch(`http://finapi-env.gsnqvvrdga.us-east-2.elasticbeanstalk.com/places/`+this.props.places._id,
         
     {
         method: 'PATCH',

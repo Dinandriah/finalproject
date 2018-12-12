@@ -70,10 +70,8 @@ function MediaCard(props) {
         {/* <Button size="small" color="primary"{...handleRemovePlace()}>
           Delete Adventure
         </Button> */}
-        <UpdatePlacesWrapped 
-        // placeid={props.places._id}
-        places={props.places}
-        />
+        <UpdatePlacesWrapped
+        places={props.places}/>
         <DeletePlaces 
         placeid={props.places._id}
         

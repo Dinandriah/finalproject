@@ -55,7 +55,7 @@ class AddPlaces extends Component{
   };
   AddPlaces = async (e) => {
     e.preventDefault()
-    await fetch('http://127.0.0.1:3000/places',
+    await fetch('http://finapi-env.gsnqvvrdga.us-east-2.elasticbeanstalk.com/places',
     {
         method: 'POST',
         body: JSON.stringify(this.state.places),
